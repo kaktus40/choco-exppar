@@ -8,18 +8,18 @@
     <artifactId>exppar</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>An expression parser, developped for Choco-3.X.X</name>
+    <name>An expression parser, developped for Choco-3</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!--<scm>
-        <connection>scm:git:git@github.com:chocoteam/choco3.git</connection>
-        <url>scm:git:git://github.com/chocoteam/choco3</url>
-        <developerConnection>scm:git:git@github.com:chocoteam/choco3.git</developerConnection>
+    <scm>
+        <connection>scm:git:git@github.com:chocoteam/Exppar.git</connection>
+        <url>scm:git:git://github.com/chocoteam/Exppar</url>
+        <developerConnection>scm:git:git@github.com:chocoteam/Exppar.git</developerConnection>
         <tag>HEAD</tag>
-    </scm>-->
+    </scm>
 
 
     <dependencies>
@@ -81,14 +81,6 @@
         </snapshotRepository>
     </distributionManagement>
     <repositories>
-        <repository>
-            <id>central.repos</id>
-            <url>http://repo1.maven.org/maven2/</url>
-        </repository>
-        <repository>
-            <id>download.java.net.repos</id>
-            <url>http://download.java.net/maven/2/</url>
-        </repository>
         <repository>
             <id>choco.repo</id>
             <url>http://www.emn.fr/z-info/choco-repo/mvn/repository/</url>
