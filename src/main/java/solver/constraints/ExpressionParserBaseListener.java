@@ -28,28 +28,43 @@ package solver.constraints;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import solver.variables.VariableFactory;
+import solver.Solver;
+import solver.variables.IntVar;
+import solver.constraints.Constraint;
+import solver.constraints.ICF;
+import solver.exception.SolverException;
+import solver.constraints.Operator;
+import solver.variables.VF;
+
+import java.util.Arrays;
+import gnu.trove.list.TIntList;
+import gnu.trove.list.array.TIntArrayList;
+
+
 import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.tree.ErrorNode;
+import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.antlr.v4.runtime.tree.ErrorNode;
 
 public class ExpressionParserBaseListener implements ExpressionParserListener {
 	@Override public void enterExpression(ExpressionParser.ExpressionContext ctx) { }
 	@Override public void exitExpression(ExpressionParser.ExpressionContext ctx) { }
 
-	@Override public void enterAssignment(ExpressionParser.AssignmentContext ctx) { }
-	@Override public void exitAssignment(ExpressionParser.AssignmentContext ctx) { }
-
-	@Override public void enterVar(ExpressionParser.VarContext ctx) { }
-	@Override public void exitVar(ExpressionParser.VarContext ctx) { }
+	@Override public void enterAtom(ExpressionParser.AtomContext ctx) { }
+	@Override public void exitAtom(ExpressionParser.AtomContext ctx) { }
 
 	@Override public void enterAssgnt(ExpressionParser.AssgntContext ctx) { }
 	@Override public void exitAssgnt(ExpressionParser.AssgntContext ctx) { }
 
-	@Override public void enterAtom(ExpressionParser.AtomContext ctx) { }
-	@Override public void exitAtom(ExpressionParser.AtomContext ctx) { }
+	@Override public void enterAssignment(ExpressionParser.AssignmentContext ctx) { }
+	@Override public void exitAssignment(ExpressionParser.AssignmentContext ctx) { }
 
 	@Override public void enterShexp(ExpressionParser.ShexpContext ctx) { }
 	@Override public void exitShexp(ExpressionParser.ShexpContext ctx) { }
+
+	@Override public void enterVar(ExpressionParser.VarContext ctx) { }
+	@Override public void exitVar(ExpressionParser.VarContext ctx) { }
 
 	@Override public void enterOperator(ExpressionParser.OperatorContext ctx) { }
 	@Override public void exitOperator(ExpressionParser.OperatorContext ctx) { }

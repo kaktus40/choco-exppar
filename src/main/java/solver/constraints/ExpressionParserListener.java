@@ -48,20 +48,20 @@ public interface ExpressionParserListener extends ParseTreeListener {
 	void enterExpression(ExpressionParser.ExpressionContext ctx);
 	void exitExpression(ExpressionParser.ExpressionContext ctx);
 
-	void enterAssignment(ExpressionParser.AssignmentContext ctx);
-	void exitAssignment(ExpressionParser.AssignmentContext ctx);
-
-	void enterVar(ExpressionParser.VarContext ctx);
-	void exitVar(ExpressionParser.VarContext ctx);
+	void enterAtom(ExpressionParser.AtomContext ctx);
+	void exitAtom(ExpressionParser.AtomContext ctx);
 
 	void enterAssgnt(ExpressionParser.AssgntContext ctx);
 	void exitAssgnt(ExpressionParser.AssgntContext ctx);
 
-	void enterAtom(ExpressionParser.AtomContext ctx);
-	void exitAtom(ExpressionParser.AtomContext ctx);
+	void enterAssignment(ExpressionParser.AssignmentContext ctx);
+	void exitAssignment(ExpressionParser.AssignmentContext ctx);
 
 	void enterShexp(ExpressionParser.ShexpContext ctx);
 	void exitShexp(ExpressionParser.ShexpContext ctx);
+
+	void enterVar(ExpressionParser.VarContext ctx);
+	void exitVar(ExpressionParser.VarContext ctx);
 
 	void enterOperator(ExpressionParser.OperatorContext ctx);
 	void exitOperator(ExpressionParser.OperatorContext ctx);

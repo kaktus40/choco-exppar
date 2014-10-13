@@ -56,7 +56,8 @@ public class ExpressionParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		RB=2, SC=9, DT=10, MN=8, LB=1, NT=6, LT=5, EQ=3, PL=7, WS=12, GT=4, INT=11;
+		PL=7, SC=9, GT=4, LT=5, LB=1, WS=12, INT=11, EQ=3, RB=2, DT=10, MN=8, 
+		NT=6;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'{'", "'}'", "'='", "'>'", "'<'", "'!'", "'+'", "'-'", "';'", 
 		"'.'", "INT", "WS"
@@ -108,15 +109,15 @@ public class ExpressionParser extends Parser {
 		public IntVar[] ivars;
 		public Constraint[] constraints;
 		public List<Constraint> mConstraints = new ArrayList<Constraint>();
-		public List<TerminalNode> SC() { return getTokens(ExpressionParser.SC); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
-		public ExpressionContext expression(int i) {
-			return getRuleContext(ExpressionContext.class,i);
-		}
+		public List<TerminalNode> SC() { return getTokens(ExpressionParser.SC); }
 		public TerminalNode SC(int i) {
 			return getToken(ExpressionParser.SC, i);
+		}
+		public ExpressionContext expression(int i) {
+			return getRuleContext(ExpressionContext.class,i);
 		}
 		public AssignmentContext(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
 		public AssignmentContext(ParserRuleContext parent, int invokingState, Solver aSolver, IntVar[] ivars) {
@@ -192,10 +193,10 @@ public class ExpressionParser extends Parser {
 	}
 
 	public static class AssgntContext extends ParserRuleContext {
-		public TerminalNode NT() { return getToken(ExpressionParser.NT, 0); }
+		public TerminalNode GT() { return getToken(ExpressionParser.GT, 0); }
 		public TerminalNode LT() { return getToken(ExpressionParser.LT, 0); }
 		public TerminalNode EQ() { return getToken(ExpressionParser.EQ, 0); }
-		public TerminalNode GT() { return getToken(ExpressionParser.GT, 0); }
+		public TerminalNode NT() { return getToken(ExpressionParser.NT, 0); }
 		public AssgntContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -281,8 +282,8 @@ public class ExpressionParser extends Parser {
 
 	public static class OperatorContext extends ParserRuleContext {
 		public Operator ope;
-		public TerminalNode MN() { return getToken(ExpressionParser.MN, 0); }
 		public TerminalNode PL() { return getToken(ExpressionParser.PL, 0); }
+		public TerminalNode MN() { return getToken(ExpressionParser.MN, 0); }
 		public OperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -335,9 +336,9 @@ public class ExpressionParser extends Parser {
 	public static class VarContext extends ParserRuleContext {
 		public IntVar aVar;
 		public Token i;
-		public TerminalNode RB() { return getToken(ExpressionParser.RB, 0); }
 		public TerminalNode LB() { return getToken(ExpressionParser.LB, 0); }
 		public TerminalNode INT() { return getToken(ExpressionParser.INT, 0); }
+		public TerminalNode RB() { return getToken(ExpressionParser.RB, 0); }
 		public VarContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -384,11 +385,11 @@ public class ExpressionParser extends Parser {
 	public static class AtomContext extends ParserRuleContext {
 		public Token i;
 		public VarContext v;
-		public TerminalNode DT() { return getToken(ExpressionParser.DT, 0); }
+		public TerminalNode INT() { return getToken(ExpressionParser.INT, 0); }
 		public VarContext var() {
 			return getRuleContext(VarContext.class,0);
 		}
-		public TerminalNode INT() { return getToken(ExpressionParser.INT, 0); }
+		public TerminalNode DT() { return getToken(ExpressionParser.DT, 0); }
 		public AtomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -473,17 +474,17 @@ public class ExpressionParser extends Parser {
 
 	public static class ShexpContext extends ParserRuleContext {
 		public OperatorContext o;
-		public OperatorContext operator(int i) {
-			return getRuleContext(OperatorContext.class,i);
-		}
 		public List<AtomContext> atom() {
 			return getRuleContexts(AtomContext.class);
 		}
-		public List<OperatorContext> operator() {
-			return getRuleContexts(OperatorContext.class);
+		public OperatorContext operator(int i) {
+			return getRuleContext(OperatorContext.class,i);
 		}
 		public AtomContext atom(int i) {
 			return getRuleContext(AtomContext.class,i);
+		}
+		public List<OperatorContext> operator() {
+			return getRuleContexts(OperatorContext.class);
 		}
 		public ShexpContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -562,14 +563,14 @@ public class ExpressionParser extends Parser {
 
 	public static class ExpressionContext extends ParserRuleContext {
 		public int a = 0;
-		public ShexpContext shexp(int i) {
-			return getRuleContext(ShexpContext.class,i);
-		}
 		public AssgntContext assgnt() {
 			return getRuleContext(AssgntContext.class,0);
 		}
 		public List<ShexpContext> shexp() {
 			return getRuleContexts(ShexpContext.class);
+		}
+		public ShexpContext shexp(int i) {
+			return getRuleContext(ShexpContext.class,i);
 		}
 		public ExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
