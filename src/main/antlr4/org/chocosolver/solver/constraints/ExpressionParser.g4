@@ -7,7 +7,7 @@ options{
 }
 
 @header {
-/*
+/**
  * Copyright (c) 1999-2014, Ecole des Mines de Nantes
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without
@@ -34,18 +34,16 @@ options{
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import solver.variables.VariableFactory;
-import solver.Solver;
-import solver.variables.IntVar;
-import solver.constraints.Constraint;
-import solver.constraints.ICF;
-import solver.exception.SolverException;
-import solver.constraints.Operator;
-import solver.variables.VF;
-
-import java.util.Arrays;
 import gnu.trove.list.TIntList;
 import gnu.trove.list.array.TIntArrayList;
+import org.chocosolver.solver.Solver;
+import org.chocosolver.solver.exception.SolverException;
+import org.chocosolver.solver.variables.IntVar;
+import org.chocosolver.solver.variables.VF;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 }
 
 @members{

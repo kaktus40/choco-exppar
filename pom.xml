@@ -6,7 +6,7 @@
 
     <groupId>choco</groupId>
     <artifactId>choco-exppar</artifactId>
-    <version>3.2.1-SNAPSHOT</version>
+    <version>3.3.0</version>
     <packaging>jar</packaging>
     <name>An expression parser, developped for Choco3</name>
 
@@ -24,9 +24,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>choco</groupId>
+            <groupId>org.choco-solver</groupId>
             <artifactId>choco-solver</artifactId>
-            <version>3.2.1</version>
+            <version>3.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -63,29 +63,6 @@
         </dependency>
 
     </dependencies>
-
-    <distributionManagement>
-        <repository>
-            <uniqueVersion>false</uniqueVersion>
-            <id>choco-releases</id>
-            <name>Private Maven Repository</name>
-            <url>file:///Volumes/choco-repo/publish/mvn/repository</url>
-            <layout>default</layout>
-        </repository>
-        <snapshotRepository>
-            <uniqueVersion>true</uniqueVersion>
-            <id>choco-releases</id>
-            <name>Private Maven Repository</name>
-            <url>file:///Volumes/choco-repo/publish/mvn/repository</url>
-            <layout>default</layout>
-        </snapshotRepository>
-    </distributionManagement>
-    <repositories>
-        <repository>
-            <id>choco.repo</id>
-            <url>http://www.emn.fr/z-info/choco-repo/mvn/repository/</url>
-        </repository>
-    </repositories>
     <build>
         <plugins>
             <plugin>
@@ -93,8 +70,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>ISO-8859-1</encoding>
                 </configuration>
             </plugin>
@@ -108,7 +85,7 @@
                             <goal>antlr4</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>src/main/java</outputDirectory>
+                            <outputDirectory>src/main/java/</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>

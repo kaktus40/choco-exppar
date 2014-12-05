@@ -1,7 +1,7 @@
-// Generated from solver/constraints/ExpressionParser.g4 by ANTLR 4.0
-package solver.constraints;
+// Generated from org/chocosolver/solver/constraints/ExpressionParser.g4 by ANTLR 4.0
+package org.chocosolver.solver.constraints;
 
-/*
+/**
  * Copyright (c) 1999-2014, Ecole des Mines de Nantes
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without
@@ -28,18 +28,16 @@ package solver.constraints;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import solver.variables.VariableFactory;
-import solver.Solver;
-import solver.variables.IntVar;
-import solver.constraints.Constraint;
-import solver.constraints.ICF;
-import solver.exception.SolverException;
-import solver.constraints.Operator;
-import solver.variables.VF;
-
-import java.util.Arrays;
 import gnu.trove.list.TIntList;
 import gnu.trove.list.array.TIntArrayList;
+import org.chocosolver.solver.Solver;
+import org.chocosolver.solver.exception.SolverException;
+import org.chocosolver.solver.variables.IntVar;
+import org.chocosolver.solver.variables.VF;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -51,20 +49,20 @@ public class ExpressionParserBaseListener implements ExpressionParserListener {
 	@Override public void enterExpression(ExpressionParser.ExpressionContext ctx) { }
 	@Override public void exitExpression(ExpressionParser.ExpressionContext ctx) { }
 
-	@Override public void enterAtom(ExpressionParser.AtomContext ctx) { }
-	@Override public void exitAtom(ExpressionParser.AtomContext ctx) { }
+	@Override public void enterAssignment(ExpressionParser.AssignmentContext ctx) { }
+	@Override public void exitAssignment(ExpressionParser.AssignmentContext ctx) { }
+
+	@Override public void enterVar(ExpressionParser.VarContext ctx) { }
+	@Override public void exitVar(ExpressionParser.VarContext ctx) { }
 
 	@Override public void enterAssgnt(ExpressionParser.AssgntContext ctx) { }
 	@Override public void exitAssgnt(ExpressionParser.AssgntContext ctx) { }
 
-	@Override public void enterAssignment(ExpressionParser.AssignmentContext ctx) { }
-	@Override public void exitAssignment(ExpressionParser.AssignmentContext ctx) { }
+	@Override public void enterAtom(ExpressionParser.AtomContext ctx) { }
+	@Override public void exitAtom(ExpressionParser.AtomContext ctx) { }
 
 	@Override public void enterShexp(ExpressionParser.ShexpContext ctx) { }
 	@Override public void exitShexp(ExpressionParser.ShexpContext ctx) { }
-
-	@Override public void enterVar(ExpressionParser.VarContext ctx) { }
-	@Override public void exitVar(ExpressionParser.VarContext ctx) { }
 
 	@Override public void enterOperator(ExpressionParser.OperatorContext ctx) { }
 	@Override public void exitOperator(ExpressionParser.OperatorContext ctx) { }
