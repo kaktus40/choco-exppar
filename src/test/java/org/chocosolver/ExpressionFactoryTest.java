@@ -1,4 +1,4 @@
-/**
+package org.chocosolver; /**
  *  Copyright (c) 1999-2014, Ecole des Mines de Nantes
  *  All rights reserved.
  *  Redistribution and use in source and binary forms, with or without
@@ -27,15 +27,15 @@
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.chocosolver.solver.Solver;
+import org.chocosolver.solver.constraints.Constraint;
+import org.chocosolver.solver.constraints.ExpressionLexer;
+import org.chocosolver.solver.constraints.ExpressionParser;
+import org.chocosolver.solver.exception.SolverException;
+import org.chocosolver.solver.variables.IntVar;
+import org.chocosolver.solver.variables.VF;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import solver.Solver;
-import solver.constraints.Constraint;
-import solver.constraints.ExpressionLexer;
-import solver.constraints.ExpressionParser;
-import solver.exception.SolverException;
-import solver.variables.IntVar;
-import solver.variables.VF;
 
 /**
  * <br/>
@@ -43,7 +43,7 @@ import solver.variables.VF;
  * @author Charles Prud'homme
  * @since 20/01/2014
  */
-public class ExpressionFactory {
+public class ExpressionFactoryTest {
 
 
     static Constraint[] parser(String expression, IntVar... vars) {

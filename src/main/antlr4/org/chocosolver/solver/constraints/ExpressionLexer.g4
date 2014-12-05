@@ -1,7 +1,7 @@
 lexer grammar ExpressionLexer;
 
 @lexer::header {
-/*
+/**
  * Copyright (c) 1999-2014, Ecole des Mines de Nantes
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without

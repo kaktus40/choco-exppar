@@ -1,7 +1,7 @@
-// Generated from solver/constraints/ExpressionLexer.g4 by ANTLR 4.0
-package solver.constraints;
+// Generated from org/chocosolver/solver/constraints/ExpressionLexer.g4 by ANTLR 4.0
+package org.chocosolver.solver.constraints;
 
-/*
+/**
  * Copyright (c) 1999-2014, Ecole des Mines de Nantes
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without
